@@ -33,10 +33,8 @@ repository:
   
   dict:
     - {id}.dict.yaml
-
-
 provides:
-  {id}:
+  - {id}:
     display_name: {name}
     files:
       - {id}.schema.yaml
@@ -47,6 +45,5 @@ for x in table:
     url = regex.compile('\((.*?)\)').findall(x)[0]
     name = x.split('：')[1]
     print(id,url,name)
-    with open('./schemate/'+id+".yaml",'w+') as file:
+    with open('./'+id+".yaml",'w+') as file:
         file.write(formatString.format(id=id,url=url,name=name))
-
