@@ -23,21 +23,19 @@ table = """- [rime-arabic](https://github.com/biopolyhedron/rime-arabic)：阿�
 - [rime-uyghur](https://github.com/biopolyhedron/rime-uyghur)：維吾爾語
 - [rime-zhuyin](https://github.com/biopolyhedron/rime-zhuyin)：漢語注音字母""".split("\n")
 
-formatString='''
-repository:
-  url: {url}
-  url_to_file: /archive/master.zip
-  
-  id: {id}
-  display_name: {name}
-  
-  dict:
-    - {id}.dict.yaml
+formatString='''---
+id: {id}
+display_name: {name}
+url: {url}
+url_to_file: /archive/master.zip
+
 provides:
   - {id}:
+    type: basic
     display_name: {name}
     files:
       - {id}.schema.yaml
+---
 '''
 
 for x in table:
